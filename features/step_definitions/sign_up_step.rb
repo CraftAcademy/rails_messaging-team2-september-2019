@@ -7,7 +7,7 @@ Given("I visit the landing page") do
   end
   
   Then("I should be on sign_up page") do
-    pending # Write code here that turns the phrase above into concrete actions
+    visit root_path
   end
   
   When("I fill in {string} with {string}") do |string, string2|
