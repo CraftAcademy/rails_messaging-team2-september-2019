@@ -19,6 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
 end
 
 group :development do
