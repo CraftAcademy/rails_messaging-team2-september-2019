@@ -2,8 +2,8 @@ Given("I visit the landing page") do
     visit root_path
   end
   
-  When("I click {string} button") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
+  When("I click {string} button") do |link_to|
+    click_on(link_to)
   end
   
   Then("I should be on sign_up page") do

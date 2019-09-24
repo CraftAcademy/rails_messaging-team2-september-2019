@@ -5,7 +5,7 @@ I would like to be able to sign up to the mailboxer app.
 
 Background:
 Given I visit the landing page
-When I click "sign up" button
+When I click "Sign up" button
 Then I should be on sign_up page
 
    Scenario: Be able to sign up
