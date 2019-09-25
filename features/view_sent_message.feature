@@ -18,4 +18,3 @@ Scenario: User can see the sent message
   And I am on the inbox page
   When I click the sent page
   Then I should see "Sent messages"
-
