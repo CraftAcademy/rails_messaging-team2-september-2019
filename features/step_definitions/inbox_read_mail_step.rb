@@ -18,11 +18,11 @@ Given("I am logged in as {string}") do |name|
 end
 
 Given("I visit the site") do
-  pending # Write code here that turns the phrase above into concrete actions
+  visit root_path
 end
 
 Given("I click the {string} button") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+  click_on(string)
 end
 
 Then("I should see {string}") do |string|
