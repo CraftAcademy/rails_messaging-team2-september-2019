@@ -26,7 +26,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'pry-byebug'
   gem 'spring'
   gem 'web-console', '~> 2.0'
 end
