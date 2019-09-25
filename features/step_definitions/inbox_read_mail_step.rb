@@ -13,8 +13,8 @@ Given("the following mail was sent to recipients Faraz") do |table|
 end
 
 Given("I am logged in as {string}") do |name|
-  user = User.find_by(name: name)
-  login_as(user, scope: :user)
+  @user = User.find_by(name: name)
+  login_as(@user, scope: :user)
 end
 
 Given("I visit the site") do
@@ -27,4 +27,9 @@ end
 
 Then("I should see {string}") do |string|
   expect(page).to have_content string
+end
+
+Then("I should see {string} messages") do |expected_count|
+  count = @user.mailbox.inbox.count
+  expect(count).to eq expected_count.to_i
 end
