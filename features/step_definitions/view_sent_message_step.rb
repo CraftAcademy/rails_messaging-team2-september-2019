@@ -16,13 +16,13 @@ end
     login_as(user, scope: :user)
   end
   Given("I visit the site") do
-    pending # Write code here that turns the phrase above into concrete actions
+    visit root_path
   end
   
-  When("I click the sent page") do
-    pending # Write code here that turns the phrase above into concrete actions
+  When("I click the {string} button") do |string|
+    click_on(string)
   end
   
-  Then("I should see {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
+  Then("I should see {string}") do |content|
+    expect(page).to have_content content
   end
