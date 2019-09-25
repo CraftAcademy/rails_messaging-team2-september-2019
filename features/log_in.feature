@@ -31,12 +31,4 @@ Background:
         And I fill in "Password" with "12345679"
         And I click "Log in" button
         Then I should see "Invalid Email or password"
-
-#KOLLA HÄR FARAAAAAAZ!!!!!
-    Scenario: Wrong username/account doesn't exist [Sad Path]
-        When I fill in "Email" with " "
-        And I fill in "Password" with ""
-        And I click "Log in" button
-        Then I should be on landing page
-        Then I should see "Craft Academy Mailboxer"
         
