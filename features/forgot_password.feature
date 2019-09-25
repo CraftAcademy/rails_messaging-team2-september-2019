@@ -12,7 +12,7 @@ Scenario:  Email can't be blank [Sad Path]
     And I click "Forgot your password?"
     And I should see "Forgot your password?"
     And I click "Send me reset password instructions"
-    Then I should see "1 error prohibited this user from being saved:"
+    Then I should see "Email can't be blank"
 
 Scenario: Email must be registered [Sad Path]
     When I click "Login"
