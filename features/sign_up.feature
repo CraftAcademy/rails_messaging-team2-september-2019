@@ -14,4 +14,28 @@ Feature: Sign up
       And I fill in "Password confirmation" with "Password"
       And I click on "Create"
       Then I should be on landing page
-      And I should see "Welcome! You have signed up successfully."
+      And I should see "Hello, Anna"
+
+Scenario: Sad path: User can't sign up with used Email
+      When I fill in "Name" with "Anna"
+      And I fill in "Email" with "anna@gmail.com"
+      And I fill in "Password" with "Password"
+      And I fill in "Password confirmation" with "Password"
+      And I click on "Create"
+      Then I should see ..
+
+Scenario: Sad path: User can't sign up if password is too short
+      When I fill in "Name" with "Anna"
+      And I fill in "Email" with "anna@gmail.com"
+      And I fill in "Password" with "Password"
+      And I fill in "Password confirmation" with "Password"
+      And I click on "Create"
+      Then I should see ....
+
+            When I fill in "Name" with "Anna"
+      And I fill in "Email" with "anna@gmail.com"
+      And I fill in "Password" with "Password"
+      And I fill in "Password confirmation" with "Password"
+      And I click on "Create"
+      Then I should be on landing page
+      And I should see "Hello, Anna"

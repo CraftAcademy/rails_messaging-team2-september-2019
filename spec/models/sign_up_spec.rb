@@ -17,3 +17,9 @@ RSpec.describe User, type: :model do
         end
     end
 end
+
+describe "name field" do
+    it 'field name to be visible' do
+        expect(form.field.name).to be_visible
+    end
+end
