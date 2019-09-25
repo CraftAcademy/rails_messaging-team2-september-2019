@@ -5,8 +5,11 @@ Given("following user exists") do |table|
 end
 
 Given("the following mail was sent to recipients Faraz") do |table|
-  # table is a Cucumber::MultilineArgument::DataTable
-  pending # Write code here that turns the phrase above into concrete actions
+  table.hashes.each do |mail|
+    sender = User.find_by(name: mail["sender"])
+    receiver = User.find_by(name: mail["receiver"])
+    sender.send_message(receiver, mail["body"], mail["subject"])
+  end
 end
 
 Given("I am logged in as {string}") do |string|
