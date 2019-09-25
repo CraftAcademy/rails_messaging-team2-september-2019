@@ -5,21 +5,19 @@ Feature: Send message
   I need to be able to compose a new message
 
   Background:
-    When I visit the "landing" page
-    And I click the "Login" link
-    And I fill in "Email" with "Sverrir"
-    And I fill in "Password" with "abcd1234"
-    When I click "Log in" button
-
+    Given following users exists
+         |name   |email        |password|
+         |Sverrir|hress@gaur.is|password|
+         |Faraz  |faraz@gaur.is|password|
+    And I am logged in as "Sverrir"
+    And I visit the site
+    
   Scenario: Successfully composing a message
-    When I visit the "landing" page
-    And I should see "Craft Academy Mailboxer"
-    And I visit the "mailbox#inbox" page
-    And I visit the "conversations/new" page
-    And I should see "Recipients"
-    And I select "Faraz" in "conversation_recipients"
+    When I click "Inbox"  
+    And I click "Compose"
+    And I select "Recipient" named "Faraz"
     And I fill in "Subject" with "Important subject"
-    And I fill in "Message" with "Some important text"
-    And I click "Send Message" button
+    And I fill in "conversation[body]" with "Some important text"
+    And I click "Send Message" 
     Then I should see "Your message was successfully sent!"
   
