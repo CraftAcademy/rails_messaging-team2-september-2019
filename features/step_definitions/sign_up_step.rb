@@ -2,27 +2,24 @@ Given("I visit the landing page") do
     visit root_path
   end
   
-  When("I click {string} button") do |link_to|
-    click_on(link_to)
+  When("I click {string} button") do |button|
+    click_on(button)
   end
   
-  Then("I should be on sign_up page") do
-    visit root_path
-  end
   
-  When("I fill in {string} with {string}") do |string, string2|
-    pending # Write code here that turns the phrase above into concrete actions
+  When("I fill in {string} with {string}") do |field, string|
+    fill_in field, with: string
   end
-  
+
   When("I click on {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
+   click_on(string)
   end
   
   Then("I should be on landing page") do
-    pending # Write code here that turns the phrase above into concrete actions
+    visit root_path
   end
-  
+
   Then("I should see {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
+    expect(page).to have_content string
   end
   
