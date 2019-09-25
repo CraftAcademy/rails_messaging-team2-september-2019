@@ -22,4 +22,9 @@ Given("I visit the landing page") do
   Then("I should see {string}") do |string|
     expect(page).to have_content string
   end
-  
+
+  Given("following user exist") do |table|
+    table.hashes.each do |hash|
+      User.create!(hash)
+    end
+  end

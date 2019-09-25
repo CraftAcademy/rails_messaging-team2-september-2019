@@ -6,8 +6,12 @@ Feature: Sign up
    Background:
       Given I visit the landing page
       And I click "Sign up" button
+      And following user exist
+      |name       |email          |password|
+      |berg       |berg@gmail.com |12345678|
 
-   Scenario: Be able to sign up
+
+Scenario: Be able to sign up [Happy Path]
       When I fill in "Name" with "Anna"
       And I fill in "Email" with "anna@gmail.com"
       And I fill in "Password" with "Password"
@@ -16,26 +20,31 @@ Feature: Sign up
       Then I should be on landing page
       And I should see "Hello, Anna"
 
-Scenario: Sad path: User can't sign up with used Email
+
+Scenario: User can't sign up if password is too short [Sad Path]
       When I fill in "Name" with "Anna"
       And I fill in "Email" with "anna@gmail.com"
-      And I fill in "Password" with "Password"
-      And I fill in "Password confirmation" with "Password"
+      And I fill in "Password" with "Pass"
+      And I fill in "Password confirmation" with "Pass"
       And I click on "Create"
-      Then I should see ..
+      Then I should see "Password is too short (minimum is 8 characters)"
 
-Scenario: Sad path: User can't sign up if password is too short
-      When I fill in "Name" with "Anna"
-      And I fill in "Email" with "anna@gmail.com"
+Scenario: User does not fill in name [Sad Path]
+      When I fill in "Email" with "anna@gmail.com"
       And I fill in "Password" with "Password"
       And I fill in "Password confirmation" with "Password"
       And I click on "Create"
-      Then I should see ....
+      Then I should see "Name can't be blank"
 
-            When I fill in "Name" with "Anna"
-      And I fill in "Email" with "anna@gmail.com"
-      And I fill in "Password" with "Password"
-      And I fill in "Password confirmation" with "Password"
+
+
+Scenario: User can't sign up with used Email and Name [Sad Path]
+      When I click "Sign up" button
+      And I fill in "Name" with "berg"
+      And I fill in "Email" with "berg@gmail.com"
+      And I fill in "Password" with "12345678"
+      And I fill in "Password confirmation" with "12345678"
       And I click on "Create"
-      Then I should be on landing page
-      And I should see "Hello, Anna"
+      Then I should see "Email has already been taken"
+
+
