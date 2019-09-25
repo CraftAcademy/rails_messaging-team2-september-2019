@@ -14,4 +14,9 @@ Given("I visit the landing page") do
     click_link(string)
   end
 
+  When("I fill {string} with {string}") do |field, string|
+    fill_in field, with: string
+  end
+  
+
   
