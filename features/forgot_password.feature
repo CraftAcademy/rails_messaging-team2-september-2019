@@ -11,13 +11,13 @@ Background:
     And I visit the landing page
 
 
-Scenario: Enter email and see that instructions has been sent.
+Scenario: Enter email and see that instructions has been sent [Happy Path]
     When I click "Login"
-    And I should see "Remember me"
-    And I click "Forgot your password?"
+    And I click "Forgot your password?" button
     And I fill "Email" with "jarmo@gmail.com"
-    And I click "Send me reset password instructions"
-    Then I should see 
+    And I press "Send me reset password instructions"
+    And an email should be sent
+    Then the email should include "Hello jarmo@gmail.com"
     
     
 
@@ -31,11 +31,8 @@ Scenario:  Email can't be blank [Sad Path]
 
 Scenario: Email must be registered [Sad Path]
     When I click "Login"
-    # And I should see "Remember me"
     And I click "Forgot your password?"
     And I should see "Forgot your password?"
     And I fill "Email" with "taken@gmail.com"
     And I click "Send me reset password instructions"
     Then I should see "Email not found"
-
-#Happy path Enter email and see that instructions has been sent.
