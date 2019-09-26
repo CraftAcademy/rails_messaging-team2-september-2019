@@ -35,5 +35,4 @@ Feature: Reply message
     And I click "Inbox"
     And I click "View"
     When I click "Reply"
-    Then I should see "Happy now?"
-    And I should not see "Your reply message was successfully sent!"
+    Then I should still see "Happy now?"

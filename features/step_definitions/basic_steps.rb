@@ -33,6 +33,6 @@ Given("I visit the site") do
   visit root_path
 end
 
-Then("I should not see {string}") do |string|
-  expect(page).to have_no_content string
+Then("I should still see {string}") do |string|
+  expect(page).to have_content string
 end
