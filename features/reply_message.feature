@@ -24,8 +24,16 @@ Feature: Reply message
     And I fill in "Reply Message" with "Happy now?"
     And I click "Reply"
   
-  Scenario: Successfully viewing trash
+  Scenario: Successfully viewing trash [Happy path]
     Given I am logged in as "user2019"
     And I click "Inbox"
     And I click "View"
-    And I should see "Happy now?"
+    Then I should see "Happy now?"
+
+  Scenario: Empty reply doesn't show [Sad path]
+    Given I am logged in as "user2019"
+    And I click "Inbox"
+    And I click "View"
+    When I click "Reply"
+    Then I should see "Happy now?"
+    And I should not see "Your reply message was successfully sent!"
