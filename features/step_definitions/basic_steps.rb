@@ -15,3 +15,8 @@ Given("following users exist") do |table|
     FactoryBot.create(:user, user_hash)
   end
 end
+
+Given("I am logged in as {string}") do |string|
+  user = User.find_by(name: string)
+  login_as(user, scope: :user)
+end

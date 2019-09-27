@@ -7,8 +7,8 @@ Feature: Log in
 		Given following users exist
 			|name       |email          |password|
 			|berg       |berg@gmail.com |12345678|
-    And I visit the landing page
-    And I click on "Login"
+		And I visit the landing page
+		And I click on "Login"
 
 	Scenario: Be able to log in [Happy Path]
 		When I fill in "Email" with "berg@gmail.com"
