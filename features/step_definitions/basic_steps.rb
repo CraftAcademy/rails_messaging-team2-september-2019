@@ -20,3 +20,7 @@ Given("I am logged in as {string}") do |string|
   user = User.find_by(name: string)
   login_as(user, scope: :user)
 end
+
+When("I select {string} named {string}") do |recipient, name|
+  select name, from: recipient
+end
