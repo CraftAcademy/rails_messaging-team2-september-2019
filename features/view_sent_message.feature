@@ -1,21 +1,20 @@
 Feature: View Sent Message
-As a user
-In order to to read my sent messages
-I need to be able to access the sent-folder where my sent messages are stored.
+	As a user
+	In order to to read my sent messages
+	I need to be able to access the sent-folder where my sent messages are stored.
 
-Background: User has sent message
-Given following user exists
-      | name    | email         | password |
-      | Sverrir | hress@gaur.is | abcd1234 |
-      | Faraz   | faraz@gaur.is | anything |
+	Background: User has sent message
+		Given following user exists
+			| name    | email         | password |
+			| Sverrir | hress@gaur.is | abcd1234 |
+			| Faraz   | faraz@gaur.is | anything |
+		And the following mail was sent to recipients Faraz
+			| receiver    | sender  | subject           | body                | 
+			| Faraz       | Sverrir | Important subject | Some important text |
 
-And the following mail was sent to recipients Faraz
-  | receiver    | sender  | subject           | body                | 
-  | Faraz       | Sverrir | Important subject | Some important text |
-
-Scenario: User can see the sent message
-  Given I am logged in as "Sverrir"
-  Given I visit the site
-  And I click the "Inbox" button
-  When I click the "Sent" button
-  Then I should see "Sverrir Subject"
+	Scenario: User can see the sent message
+		Given I am logged in as "Sverrir"
+		Given I visit the site
+		And I click the "Inbox" button
+		When I click the "Sent" button
+		Then I should see "Sverrir Subject"
